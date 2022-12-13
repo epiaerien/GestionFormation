@@ -18,7 +18,7 @@ import com.inti.service.IAppelService;
 @RestController
 @RequestMapping("/api")
 @CrossOrigin("http://localhost:4200")
-public class AppelService {
+public class AppelController {
 
 	@Autowired
 	IAppelService apService;

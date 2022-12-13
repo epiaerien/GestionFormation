@@ -3,10 +3,12 @@ package com.inti.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.inti.dao.IParticipantDao;
 import com.inti.model.Participant;
 
+@Service
 public class ParticipantService implements IParticipantService{
 	
 	@Autowired
