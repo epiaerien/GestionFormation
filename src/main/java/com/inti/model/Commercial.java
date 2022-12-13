@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 @Entity
-@DiscriminatorValue("C")
+
 public class Commercial extends Utilisateurs {
 	
 	@OneToMany(mappedBy = "commercial")

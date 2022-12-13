@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 @Entity
-@DiscriminatorValue("F")
+
 public class Formateur extends Utilisateurs {
 	
 	private boolean dispo;

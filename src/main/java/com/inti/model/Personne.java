@@ -13,10 +13,9 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
+@Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(name="type_personne")
-@MappedSuperclass
 public class Personne {
 	
 	@Id

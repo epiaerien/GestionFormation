@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
-@DiscriminatorValue("P")
+
 public class Participant extends Utilisateurs{
 	
 	
