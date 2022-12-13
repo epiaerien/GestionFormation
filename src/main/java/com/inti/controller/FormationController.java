@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.inti.model.Formateur;
 import com.inti.model.Formation;
-
 import com.inti.service.IFormationService;
 
 @Controller
@@ -50,4 +50,12 @@ public class FormationController {
 	public void delete(@PathVariable("id") int id) {
 		formationService.delete(id);
 	}
+	
+	@GetMapping("/formateurParFormation")
+	public Formateur selectbyformation(@RequestBody Formation form)
+	{
+		Formateur formateur = formationService.chercherParFormation(form); 
+		return formateur; 
+	}
+	
 }
