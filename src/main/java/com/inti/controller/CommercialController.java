@@ -25,7 +25,7 @@ public class CommercialController {
 	@Autowired
 	ICommercialService comService;
 
-	@GetMapping("/Commercials")
+	@GetMapping("/commercials")
 	public List<Commercial> getCommercial() {
 
 		List<Commercial> commercials = comService.selectAll();
@@ -33,21 +33,21 @@ public class CommercialController {
 		return commercials;
 	}
 
-	@PostMapping("/Commercials")
+	@PostMapping("/commercials")
 	public void add(@RequestBody Commercial c) {
 
 		comService.add(c);
 
 	}
 
-	@GetMapping("/Commercials/{id}")
+	@GetMapping("/commercials/{id}")
 	public Commercial selectById(@PathVariable("id") int id) {
 		Commercial c = comService.selectById(id);
 		return c;
 
 	}
 
-	@DeleteMapping("/Commercials/{id}")
+	@DeleteMapping("/commercials/{id}")
 	public void delete(@PathVariable("id") int id) {
 		comService.delete(id);
 	}

@@ -47,7 +47,7 @@ public class RoleController {
 
 	}
 
-	@DeleteMapping("/utilisateurs/{id}")
+	@DeleteMapping("/roles/{id}")
 	public void delete(@PathVariable("id") int id) {
 		roService.delete(id);
 	}
