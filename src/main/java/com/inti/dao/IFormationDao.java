@@ -7,6 +7,6 @@ import com.inti.model.Formation;
 
 public interface IFormationDao extends JpaRepository<Formation, Integer> {
 
-	public Formateur findByFormation(Formation f); 
+	
 	
 }

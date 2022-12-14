@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.inti.dao.IFormateurDao;
 import com.inti.model.Formateur;
+import com.inti.model.Formation;
 
 @Service
 public class FormateurService implements IFormateurService {
@@ -14,6 +15,12 @@ public class FormateurService implements IFormateurService {
 	@Autowired
 	IFormateurDao foDao; 
 	
+	@Override
+	public Formateur chercherParFormationId(int id)
+	{
+		Formateur formateur =foDao.findByFormations_id(id); 
+		return formateur; 
+	}
 	
 	@Override
 	public void add(Formateur f) {

@@ -6,5 +6,5 @@ import com.inti.model.Formateur;
 import com.inti.model.Formation;
 
 public interface IFormateurDao extends JpaRepository<Formateur, Integer>{
-
+	public Formateur findByFormations_id(int id); 
 }

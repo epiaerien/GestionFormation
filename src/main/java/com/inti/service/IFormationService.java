@@ -15,5 +15,5 @@ public interface IFormationService {
 
 	void delete(int id);
 	
-	public Formateur chercherParFormation(Formation f); 
+	
 }
