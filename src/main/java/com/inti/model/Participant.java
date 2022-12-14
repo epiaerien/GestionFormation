@@ -27,8 +27,9 @@ public class Participant extends Utilisateurs{
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_diplome")
-	@JsonIgnore
-	private Diplome diplome;
+	//suppression json ignore car deja dans diplomes model
+	//@JsonIgnore
+	private List<Diplome>  diplomes;
 
 	public List<Formation> getFormations() {
 		return formations;
@@ -46,12 +47,12 @@ public class Participant extends Utilisateurs{
 		this.transactions = transactions;
 	}
 
-	public Diplome getDiplome() {
-		return diplome;
+	public List<Diplome> getDiplome() {
+		return diplomes;
 	}
 
-	public void setDiplome(Diplome diplome) {
-		this.diplome = diplome;
+	public void setDiplome(List<Diplome> diplomes) {
+		this.diplomes = diplomes;
 	}
 	
 	
