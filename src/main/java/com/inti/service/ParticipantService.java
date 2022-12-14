@@ -43,4 +43,9 @@ public class ParticipantService implements IParticipantService{
 	}
 	 
 
+	public List<Participant> chercherParFormationId(int id)
+	{
+		List<Participant> participants = parDao.findByFormations_id(id); 
+		return participants; 
+	}
 }
