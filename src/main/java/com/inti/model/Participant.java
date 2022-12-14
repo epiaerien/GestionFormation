@@ -19,6 +19,7 @@ public class Participant extends Utilisateurs{
 	
 	
 	@ManyToMany(mappedBy = "participants")
+	@JsonIgnore
 	private List<Formation> formations;
 	
 	@OneToMany(mappedBy = "participant")

@@ -9,5 +9,6 @@ public interface IParticipantService {
 	public List<Participant> selectAll();
 	public Participant selectById(int id);
 	public void delete(int id);
+	public List<Participant> chercherParFormationId(int id); 
 
 }

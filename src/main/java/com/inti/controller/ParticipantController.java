@@ -52,4 +52,11 @@ public class ParticipantController {
 		patService.delete(id);
 	}
 
+	@GetMapping("/participantsparformation/{id}")
+	public List<Participant> chercherparformation(@PathVariable("id") int id){
+		
+	
+	 List<Participant> participants = patService.chercherParFormationId(id); 
+	 
+	 return participants; }
 }
