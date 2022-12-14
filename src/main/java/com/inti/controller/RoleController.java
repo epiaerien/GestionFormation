@@ -29,7 +29,7 @@ public class RoleController {
 	public List<Role> getRole() {
 
 		List<Role> roles = roService.selectAll();
-
+		for(Role r:roles) { System.out.println(r.getNom());}
 		return roles;
 	}
 

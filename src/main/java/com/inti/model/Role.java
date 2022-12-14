@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Role {
 
@@ -17,5 +19,33 @@ public class Role {
 	private String nom;
 	
 	@OneToMany(mappedBy = "role")
+	@JsonIgnore
 	private List<Utilisateurs> utilisateurs;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public List<Utilisateurs> getUtilisateurs() {
+		return utilisateurs;
+	}
+
+	public void setUtilisateurs(List<Utilisateurs> utilisateurs) {
+		this.utilisateurs = utilisateurs;
+	}
+	
+	
+	
 }

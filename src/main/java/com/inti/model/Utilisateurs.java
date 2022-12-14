@@ -20,6 +20,8 @@ public class Utilisateurs extends Personne {
 	
 	private String password;
 	private String username;
+	
+	
 	public Role getRole() {
 		return role;
 	}
