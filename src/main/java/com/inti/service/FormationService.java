@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.inti.dao.IFormateurDao;
 import com.inti.dao.IFormationDao;
+import com.inti.model.Formateur;
 import com.inti.model.Formation;
 
 
@@ -16,6 +18,8 @@ public class FormationService implements IFormationService {
 	
 	@Autowired
 	IFormationDao formationDao;
+	
+	
 	
 	
 	@Override

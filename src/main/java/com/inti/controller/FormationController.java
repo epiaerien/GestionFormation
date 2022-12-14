@@ -11,18 +11,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.inti.model.Formateur;
 import com.inti.model.Formation;
-
+import com.inti.service.IFormateurService;
 import com.inti.service.IFormationService;
 
-@Controller
+@RestController
 @RequestMapping("/api")
 @CrossOrigin("http://localhost:4200")
 public class FormationController {
 
 	@Autowired
 	IFormationService formationService;
+	
+	@Autowired
+	IFormateurService formateurService; 
 
 	@GetMapping("/formations")
 	public List<Formation> getAssistants() {
@@ -50,4 +55,14 @@ public class FormationController {
 	public void delete(@PathVariable("id") int id) {
 		formationService.delete(id);
 	}
+	
+	@GetMapping("/formateurParFormation/{id}")
+	public Formateur selectbyformation(@PathVariable("id") int id )
+	{
+		
+		Formateur formateur = formateurService.chercherParFormationId(id); 
+		System.out.println(formateur.getNom());
+		return formateur; 
+	}
+	
 }
