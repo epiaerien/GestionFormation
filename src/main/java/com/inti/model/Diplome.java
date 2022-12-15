@@ -1,6 +1,7 @@
 package com.inti.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -31,10 +33,9 @@ public class Diplome {
 	@JoinColumn(name = "id_formation")
 	private Formation formation;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_participant")
+	@ManyToMany(mappedBy = "diplomes")
 	@JsonIgnore
-	private Participant participant;
+	private List<Participant> participants;
 
 	public int getId() {
 		return id;
@@ -68,12 +69,12 @@ public class Diplome {
 		this.formation = formation;
 	}
 
-	public Participant getParticipant() {
-		return participant;
+	public List<Participant> getParticipants() {
+		return participants;
 	}
 
-	public void setParticipant(Participant participant) {
-		this.participant = participant;
+	public void setParticipants(List<Participant> participants) {
+		this.participants = participants;
 	}
 	
 	
