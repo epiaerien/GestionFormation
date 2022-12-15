@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -14,7 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
-
 public class Participant extends Utilisateurs{
 	
 	
@@ -25,8 +25,10 @@ public class Participant extends Utilisateurs{
 	@OneToMany(mappedBy = "participant")
 	private List<Transaction> transactions;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_diplome")
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "diplomes_participants",
+	joinColumns = @JoinColumn(name="id_participant"),
+	inverseJoinColumns = @JoinColumn(name="id_diplome"))
 	//suppression json ignore car deja dans diplomes model
 	//@JsonIgnore
 	private List<Diplome>  diplomes;
@@ -47,11 +49,11 @@ public class Participant extends Utilisateurs{
 		this.transactions = transactions;
 	}
 
-	public List<Diplome> getDiplome() {
+	public List<Diplome> getDiplomes() {
 		return diplomes;
 	}
 
-	public void setDiplome(List<Diplome> diplomes) {
+	public void setDiplomes(List<Diplome> diplomes) {
 		this.diplomes = diplomes;
 	}
 	
