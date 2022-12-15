@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Formation {
+public class Formation implements Comparable<Formation>{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,7 +45,7 @@ public class Formation {
 	@JsonIgnore
 	private Formateur formateur;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinTable(name = "participants_formations",
 			joinColumns = @JoinColumn(name="id_formation"),
 			inverseJoinColumns = @JoinColumn(name="id_participant"))
@@ -121,6 +121,14 @@ public class Formation {
 
 	public void setParticipants(List<Participant> participants) {
 		this.participants = participants;
+	}
+
+	@Override
+	public int compareTo(Formation o) {
+		if(this.nom.equals(o.nom))
+			return 0;
+		else
+			return 1;
 	}
 	
 
