@@ -1,6 +1,7 @@
 package com.inti.service;
 
 import java.util.List;
+import java.util.Set;
 
 import com.inti.model.Formateur;
 import com.inti.model.Formation;
@@ -15,5 +16,6 @@ public interface IFormationService {
 
 	void delete(int id);
 	
+	Set<Formation> getByidParticipants(int id);
 	
 }

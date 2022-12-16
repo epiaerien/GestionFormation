@@ -1,6 +1,9 @@
 package com.inti.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collector;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +23,16 @@ public class FormationService implements IFormationService {
 	IFormationDao formationDao;
 	
 	
-	
+	@Override
+	public Set<Formation> getByidParticipants(int id) {
+		Set<Formation> forms = formationDao.findAllByParticipants_id(id);
+		//List<Formation> formnoDoublon = forms.stream().collect(Collector.toCollection(() -> new TreeSet<>(comparingInt(Formation::getNom))),
+                                                           //ArrayList<Formation>::new));
+		//List<Formation > formnoDoublon= new ArrayList<>();
+		
+
+		return forms;
+	}
 	
 	@Override
 	public void add(Formation form) {

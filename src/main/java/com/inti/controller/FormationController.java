@@ -1,6 +1,7 @@
 package com.inti.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -63,6 +64,14 @@ public class FormationController {
 		Formateur formateur = formateurService.chercherParFormationId(id); 
 		System.out.println(formateur.getNom());
 		return formateur; 
+	}
+	
+	@GetMapping("/formationsbyPart/{id}")
+	public Set<Formation> getFormationByPartId(@PathVariable("id") int id ) {
+
+		Set<Formation> formations = formationService.getByidParticipants(id);
+
+		return formations;
 	}
 	
 }
