@@ -40,11 +40,13 @@ public class Formation implements Comparable<Formation>{
 	@JoinColumn(name = "id_diplome")
 	private Diplome diplome;
 	
+
 	@ManyToOne(cascade = CascadeType.MERGE)
+
 	@JoinColumn(name = "id_formateur")
 	private Formateur formateur;
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "participants_formations",
 			joinColumns = @JoinColumn(name="id_formation"),
 			inverseJoinColumns = @JoinColumn(name="id_participant"))

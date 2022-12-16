@@ -16,11 +16,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Participant extends Utilisateurs{
 	
 	
-	@ManyToMany(mappedBy = "participants")
+	@ManyToMany(mappedBy = "participants",cascade = CascadeType.ALL)
 	@JsonIgnore
 	private List<Formation> formations;
 	
+
 	@OneToMany(mappedBy = "participant", orphanRemoval = true)
+
 	private List<Transaction> transactions;
 	
 	@ManyToMany(cascade = CascadeType.ALL)

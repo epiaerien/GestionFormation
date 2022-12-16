@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Payement {
 	
@@ -19,6 +21,8 @@ public class Payement {
 	private float paye;
 	
 	@OneToMany(mappedBy = "payement")
+	//ajout json ignore 16/12/2022
+	@JsonIgnore
 	private List<Transaction> transactions;
 
 	public int getId() {

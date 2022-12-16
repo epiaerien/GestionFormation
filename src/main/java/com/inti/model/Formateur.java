@@ -15,8 +15,10 @@ public class Formateur extends Utilisateurs {
 	
 	private boolean dispo;
 	
+
 	@OneToMany(mappedBy = "formateur", orphanRemoval = true)
 	@JsonIgnore
+
 	private List<Formation> formations;
 
 	public boolean isDispo() {
