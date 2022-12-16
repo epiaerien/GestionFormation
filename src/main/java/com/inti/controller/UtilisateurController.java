@@ -33,7 +33,9 @@ public class UtilisateurController {
 
 	@PostMapping("/utilisateurs")
 	public void add(@RequestBody Utilisateurs u) {
-
+		
+		System.out.println(u.getNom());
+		
 		utService.add(u);
 
 	}
