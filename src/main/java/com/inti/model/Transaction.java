@@ -33,7 +33,8 @@ public class Transaction {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_payement")
-	@JsonIgnore
+	//enlever json 16/12/2022
+	//@JsonIgnore
 	private Payement payement;
 
 	public int getId() {
