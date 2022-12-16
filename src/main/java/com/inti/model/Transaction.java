@@ -26,7 +26,7 @@ public class Transaction {
 	
 	private float montant;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "id_participant")
 	@JsonIgnore
 	private Participant participant;

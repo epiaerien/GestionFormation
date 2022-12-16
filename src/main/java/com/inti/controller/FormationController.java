@@ -68,7 +68,7 @@ public class FormationController {
 	
 	@GetMapping("/formationsbyPart/{id}")
 	public Set<Formation> getFormationByPartId(@PathVariable("id") int id ) {
-
+System.out.println("test");
 		Set<Formation> formations = formationService.getByidParticipants(id);
 
 		return formations;
