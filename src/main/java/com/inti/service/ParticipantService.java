@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.inti.dao.IParticipantDao;
+import com.inti.model.Formation;
 import com.inti.model.Participant;
 
 @Service
@@ -37,6 +38,19 @@ public class ParticipantService implements IParticipantService{
 
 	@Override
 	public void delete(int id) {
+		
+		Participant p = parDao.findById(id).get();
+		
+		List<Formation> fs = p.getFormations();
+		
+		for(Formation f:fs) {
+			
+			f.getParticipants().remove(p);
+				
+			}
+
+		p.setFormations(null);
+		
 		
 		parDao.deleteById(id);
 		

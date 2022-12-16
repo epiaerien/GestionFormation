@@ -24,6 +24,7 @@ public class FormateurService implements IFormateurService {
 	
 	@Override
 	public void add(Formateur f) {
+		
 		foDao.save(f); 
 		
 	}

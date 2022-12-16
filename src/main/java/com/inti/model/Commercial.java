@@ -2,6 +2,7 @@ package com.inti.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -10,10 +11,10 @@ import javax.persistence.OneToMany;
 
 public class Commercial extends Utilisateurs {
 	
-	@OneToMany(mappedBy = "commercial")
+	@OneToMany(mappedBy = "commercial", cascade = CascadeType.ALL)
 	private List<RendezVous> rdv;
 	
-	@OneToMany(mappedBy = "commercial")
+	@OneToMany(mappedBy = "commercial",cascade = CascadeType.ALL)
 	private List<Appel> appels;
 
 	public List<RendezVous> getRdv() {
