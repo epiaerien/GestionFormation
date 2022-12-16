@@ -26,7 +26,9 @@ public class FormateurController {
 	
 	@GetMapping("/formateurs")
 	public List<Formateur> getformateurs() {
-
+		
+		System.out.println("je suis dans la meth select");
+		
 		List<Formateur> formateurs = foService.selectAll();
 
 		return formateurs;
@@ -35,6 +37,8 @@ public class FormateurController {
 	@PostMapping("/formateurs")
 	public void add(@RequestBody Formateur u) {
 
+		System.out.println("je suis dans lcontroller add");
+		
 		foService.add(u);
 
 	}

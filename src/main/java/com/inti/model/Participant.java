@@ -3,12 +3,10 @@ package com.inti.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,7 +20,7 @@ public class Participant extends Utilisateurs{
 	@JsonIgnore
 	private List<Formation> formations;
 	
-	@OneToMany(mappedBy = "participant")
+	@OneToMany(mappedBy = "participant", orphanRemoval = true)
 	private List<Transaction> transactions;
 	
 	@ManyToMany(cascade = CascadeType.ALL)

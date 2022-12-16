@@ -36,6 +36,7 @@ public class FormationService implements IFormationService {
 	
 	@Override
 	public void add(Formation form) {
+
 		formationDao.save(form);
 	}
 	
