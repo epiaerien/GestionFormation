@@ -11,5 +11,6 @@ import com.inti.model.Formation;
 public interface IFormationDao extends JpaRepository<Formation, Integer> {
 	public Set<Formation> findAllByParticipants_id(int id);
 	
+	public List<Formation> findByFormateur_id(int id);
 	
 }
