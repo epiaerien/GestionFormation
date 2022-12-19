@@ -18,4 +18,5 @@ public interface IFormationService {
 	
 	Set<Formation> getByidParticipants(int id);
 	
+	
 }
