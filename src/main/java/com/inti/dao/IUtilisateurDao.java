@@ -6,4 +6,6 @@ import com.inti.model.Utilisateurs;
 
 public interface IUtilisateurDao extends JpaRepository<Utilisateurs, Integer>{
 
+	public Utilisateurs findByUsername(String Username);
+	
 }

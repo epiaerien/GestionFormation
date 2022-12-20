@@ -10,5 +10,6 @@ public interface IUtilisateurService {
 	public List<Utilisateurs> selectAll();
 	public Utilisateurs selectById(int id);
 	public void delete(int id);
+	public Utilisateurs findByUsername(String username);
 
 }
