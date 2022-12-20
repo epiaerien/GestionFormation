@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.inti.dao.IDiplomeDao;
 import com.inti.dao.IParticipantDao;
+import com.inti.model.Diplome;
 import com.inti.model.Formation;
 import com.inti.model.Participant;
 
@@ -14,6 +16,9 @@ public class ParticipantService implements IParticipantService{
 	
 	@Autowired
 	IParticipantDao parDao;
+	
+	@Autowired
+	IDiplomeDao diplDao;
 
 	@Override
 	public void add(Participant p) {
@@ -41,10 +46,15 @@ public class ParticipantService implements IParticipantService{
 		
 		Participant p = parDao.findById(id).get();
 		
-		List<Formation> fs = p.getFormations();
+		List<Diplome> diplomes = p.getDiplomes();
+		for(Diplome d:diplomes) {			
+			diplDao.delete(d);
+			}
 		
-		for(Formation f:fs) {
-			
+		p.setDiplomes(null);
+		
+		List<Formation> fs = p.getFormations();		
+		for(Formation f:fs) {			
 			f.getParticipants().remove(p);
 				
 			}

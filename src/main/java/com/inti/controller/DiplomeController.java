@@ -46,6 +46,22 @@ public class DiplomeController {
 		return u;
 
 	}
+	
+	@GetMapping("/diplomesbyPartId/{id}")
+	public List<Diplome> getAllByPartId(@PathVariable("id") int idPArt) {
+
+		List<Diplome> dipls = dipService.selectAllByIdPart(idPArt);
+		return dipls;
+
+	}
+	
+	@GetMapping("/diplomesbyFormId/{id}")
+	public List<Diplome> getAllByFormId(@PathVariable("id") int idForm) {
+
+		List<Diplome> dipls = dipService.selectAllByIdForm(idForm);
+		return dipls;
+
+	}
 
 	@DeleteMapping("/diplomes/{id}")
 	public void delete(@PathVariable("id") int id) {
