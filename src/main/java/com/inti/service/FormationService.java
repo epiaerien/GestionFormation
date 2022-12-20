@@ -61,6 +61,8 @@ public class FormationService implements IFormationService {
 	//ajouter formation pour un participant
 	@Override
 	public void addFormLinkedtoPart(Formation form, int idpart) {
+		List<Diplome> ListDiplForm = diplomeDao.findAllByFormation_id(form.getId());
+		form.setDiplomes(ListDiplForm);
 		Diplome dipl = new Diplome();
 		dipl.setNom("Diplome de" + form.getNom());
 		dipl.setFormation(form);

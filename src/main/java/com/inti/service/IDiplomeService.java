@@ -11,5 +11,7 @@ public interface IDiplomeService {
 	public List<Diplome> selectAll();
 	public Diplome selectById(int id);
 	public void delete(int id);
+	public List<Diplome> selectAllByIdPart(int idPart);
+	public List<Diplome> selectAllByIdForm(int idForm);
 
 }

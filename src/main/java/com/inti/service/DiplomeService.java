@@ -25,6 +25,20 @@ public class DiplomeService implements IDiplomeService{
 		List<Diplome> diplomes = dipDao.findAll();
 		return diplomes;
 	}
+	
+	@Override
+	public List<Diplome> selectAllByIdPart(int idPart) {
+		
+		List<Diplome> diplomes = dipDao.findAllByParticipant_id(idPart);
+		return diplomes;
+	}
+	
+	@Override
+	public List<Diplome> selectAllByIdForm(int idForm) {
+		
+		List<Diplome> diplomes = dipDao.findAllByFormation_id(idForm);
+		return diplomes;
+	}
 
 	@Override
 	public Diplome selectById(int id) {
