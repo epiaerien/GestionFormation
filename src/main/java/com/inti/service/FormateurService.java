@@ -13,38 +13,49 @@ import com.inti.model.Formation;
 public class FormateurService implements IFormateurService {
 
 	@Autowired
-	IFormateurDao foDao; 
-	
+	IFormateurDao foDao;
+
 	@Override
-	public Formateur chercherParFormationId(int id)
-	{
-		Formateur formateur =foDao.findByFormations_id(id); 
-		return formateur; 
+	public Formateur chercherParFormationId(int id) {
+		Formateur formateur = foDao.findByFormations_id(id);
+		return formateur;
 	}
-	
+
 	@Override
 	public void add(Formateur f) {
-		
-		foDao.save(f); 
-		
+
+		foDao.save(f);
+
 	}
 
 	@Override
 	public List<Formateur> selectAll() {
-		List<Formateur> formateurs = foDao.findAll(); 
+		List<Formateur> formateurs = foDao.findAll();
 		return formateurs;
 	}
 
 	@Override
 	public Formateur selectById(int id) {
-		Formateur formateur = foDao.findById(id).get(); 
+		Formateur formateur = foDao.findById(id).get();
 		return formateur;
 	}
 
 	@Override
 	public void delete(int id) {
-		foDao.deleteById(id);
+
+		Formateur formateur = foDao.findById(id).get();
+
+		List<Formation> fs = formateur.getFormations();
+		for (Formation f : fs) {
+
+			f.setFormateur(null);
+
+		}
 		
+		formateur.setFormations(null);
+
+		foDao.deleteById(id);
+
 	}
 
 }
