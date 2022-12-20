@@ -29,8 +29,9 @@ public class Diplome {
 	@Temporal(TemporalType.DATE)
 	private Date dateOpt;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "id_formation")
+	@JsonIgnore
 	private Formation formation;
 	
 	@ManyToMany(mappedBy = "diplomes")

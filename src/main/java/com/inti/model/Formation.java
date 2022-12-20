@@ -36,13 +36,12 @@ public class Formation implements Comparable<Formation>{
 	private float prix;
 	private String lieu;
 	
-	@OneToOne
-	@JoinColumn(name = "id_diplome")
-	private Diplome diplome;
+	@OneToMany (mappedBy = "formation")
+	@JsonIgnore
+	private List<Diplome> diplomes;
 	
 
 	@ManyToOne(cascade = CascadeType.MERGE)
-
 	@JoinColumn(name = "id_formateur")
 	private Formateur formateur;
 	
@@ -100,12 +99,12 @@ public class Formation implements Comparable<Formation>{
 		this.lieu = lieu;
 	}
 
-	public Diplome getDiplome() {
-		return diplome;
+	public List<Diplome> getDiplomes() {
+		return diplomes;
 	}
 
-	public void setDiplome(Diplome diplome) {
-		this.diplome = diplome;
+	public void setDiplomes(List<Diplome> diplomes) {
+		this.diplomes = diplomes;
 	}
 
 	public Formateur getFormateur() {

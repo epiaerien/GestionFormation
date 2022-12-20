@@ -13,4 +13,5 @@ public interface IFormationDao extends JpaRepository<Formation, Integer> {
 	
 	public List<Formation> findByFormateur_id(int id);
 	
+	
 }
