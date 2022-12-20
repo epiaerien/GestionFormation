@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.inti.model.Role;
 import com.inti.model.Utilisateurs;
 import com.inti.service.IUtilisateurService;
 
@@ -22,6 +23,28 @@ public class UtilisateurController {
 
 	@Autowired
 	IUtilisateurService utService;
+	
+	
+	
+	@GetMapping("/utilisateur/{username}")
+	public Utilisateurs getUser(@PathVariable("username") String username)
+	{
+		Utilisateurs u = utService.findByUsername(username);
+		
+		return u;
+	}
+	
+	@GetMapping("/utilisateurRole/{username}")
+	public Role getRole(@PathVariable("username") String username)
+	{
+		Utilisateurs u = utService.findByUsername(username);
+		
+		Role r = u.getRole();
+		
+		return r;
+		
+	}
+	
 
 	@GetMapping("/utilisateurs")
 	public List<Utilisateurs> getUtilisateurs() {
