@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.model.Appel;
+import com.inti.model.Formation;
 import com.inti.service.IAppelService;
 
 @RestController
@@ -48,6 +49,13 @@ public class AppelController {
 	@DeleteMapping("/appels/{id}")
 	public void delete(@PathVariable("id") int id) {
 		apService.delete(id);
+	}
+	
+	@GetMapping("/appelparcommercial/{id}")
+	public List<Appel> appelparcommercial(@PathVariable("id") int id )
+	{
+		List<Appel> appels = apService.getbyidcommercial(id);
+		return appels; 
 	}
 
 }

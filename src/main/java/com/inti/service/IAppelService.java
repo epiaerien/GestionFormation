@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.inti.model.Appel;
 
+
 public interface IAppelService {
 
 	
@@ -11,4 +12,7 @@ public interface IAppelService {
 	public List<Appel> selectAll();
 	public Appel selectById(int id);
 	public void delete(int id);
+	
+	public List<Appel> getbyidcommercial(int id);
+	
 }

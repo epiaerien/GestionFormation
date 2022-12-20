@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.inti.dao.IAppelDao;
 import com.inti.model.Appel;
+import com.inti.model.Formation;
 
 @Service
 public class AppelService implements IAppelService {
@@ -37,6 +38,11 @@ public class AppelService implements IAppelService {
 		
 	}
 	
-	
+	public List<Appel> getbyidcommercial(int id)
+	{
+		List<Appel> appels = apDao.findByCommercial_id(id); 
+		return appels; 
+		
+	}
 	
 }
