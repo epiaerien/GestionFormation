@@ -19,5 +19,7 @@ public interface IFormationService {
 	Set<Formation> getByidParticipants(int id);
 
 	public List<Formation> getbyidformateur(int id);
+	
+	void addFormLinkedtoPart(Formation form, int idpart);
 
 }

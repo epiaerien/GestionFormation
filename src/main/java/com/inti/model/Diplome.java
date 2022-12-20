@@ -31,12 +31,14 @@ public class Diplome {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_formation")
-	@JsonIgnore
+	//mod le 20-12-2022
+	//@JsonIgnore
 	private Formation formation;
 	
-	@ManyToMany(mappedBy = "diplomes")
-	@JsonIgnore
-	private List<Participant> participants;
+	@ManyToOne
+	@JoinColumn(name = "id_participant")
+	//@JsonIgnore
+	private Participant participant;
 
 	public int getId() {
 		return id;
@@ -70,12 +72,12 @@ public class Diplome {
 		this.formation = formation;
 	}
 
-	public List<Participant> getParticipants() {
-		return participants;
+	public Participant getParticipant() {
+		return participant;
 	}
 
-	public void setParticipants(List<Participant> participants) {
-		this.participants = participants;
+	public void setParticipant(Participant participant) {
+		this.participant = participant;
 	}
 	
 	

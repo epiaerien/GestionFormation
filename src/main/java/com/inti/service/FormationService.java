@@ -1,6 +1,7 @@
 package com.inti.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collector;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Service;
 import com.inti.dao.IDiplomeDao;
 import com.inti.dao.IFormateurDao;
 import com.inti.dao.IFormationDao;
+import com.inti.dao.IParticipantDao;
+import com.inti.model.Diplome;
 import com.inti.model.Formateur;
 import com.inti.model.Formation;
 
@@ -26,6 +29,9 @@ public class FormationService implements IFormationService {
 
 	@Autowired
 	IDiplomeDao diplomeDao;
+	
+	@Autowired
+	IParticipantDao partiDao;
 
 	@Override
 	public List<Formation> getbyidformateur(int id)
@@ -53,6 +59,23 @@ public class FormationService implements IFormationService {
 	}
 	
 	//ajouter formation pour un participant
+	@Override
+	public void addFormLinkedtoPart(Formation form, int idpart) {
+		Diplome dipl = new Diplome();
+		dipl.setNom("Diplome de" + form.getNom());
+		dipl.setFormation(form);
+		dipl.setParticipant(partiDao.findById(idpart).get());
+		diplomeDao.save(dipl);
+		List<Diplome> listDipl = new ArrayList<>();
+		if(form.getDiplomes()!=null) {
+			listDipl = form.getDiplomes();
+		}		
+		System.out.println("avant ajout" + listDipl.size());
+		listDipl.add(dipl);
+		System.out.println("apres ajout" + listDipl.size());
+		form.setDiplomes(listDipl);
+	formationDao.save(form);
+	}
 	
 	@Override
 	public List<Formation> selectAll(){
