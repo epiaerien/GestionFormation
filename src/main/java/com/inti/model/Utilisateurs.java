@@ -3,6 +3,7 @@ package com.inti.model;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
@@ -15,7 +16,7 @@ import javax.persistence.ManyToOne;
 public class Utilisateurs extends Personne {
 
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Role role;
 	
 	private String password;

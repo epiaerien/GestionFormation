@@ -3,6 +3,7 @@ package com.inti.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.inti.dao.IUtilisateurDao;
@@ -13,13 +14,25 @@ public class UtilisateurService implements IUtilisateurService{
 	
 	@Autowired
 	IUtilisateurDao utDao;
+	
+	@Autowired
+	BCryptPasswordEncoder encoder;
+	
 
 	@Override
 	public void add(Utilisateurs u) {
 		
+		String pass = u.getPassword();
+		
+		String encodedPass = encoder.encode(pass);
+		
+		u.setPassword(encodedPass);
 		utDao.save(u);
 		
 	}
+	
+
+	
 
 	@Override
 	public List<Utilisateurs> selectAll() {
@@ -40,6 +53,14 @@ public class UtilisateurService implements IUtilisateurService{
 		
 		utDao.deleteById(id);
 		
+	}
+
+	@Override
+	public Utilisateurs findByUsername(String username) {
+		
+		Utilisateurs ut = utDao.findByUsername(username);
+		
+		return ut;
 	}
 	
 	
