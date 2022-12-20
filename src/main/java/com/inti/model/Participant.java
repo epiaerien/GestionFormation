@@ -21,16 +21,15 @@ public class Participant extends Utilisateurs{
 	private List<Formation> formations;
 	
 
-	@OneToMany(mappedBy = "participant", orphanRemoval = true)
-
+	@OneToMany(mappedBy = "participant"/*, orphanRemoval = true*/)
 	private List<Transaction> transactions;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "diplomes_participants",
+	@OneToMany(mappedBy = "participant")
+	/*@JoinTable(name = "diplomes_participants",
 	joinColumns = @JoinColumn(name="id_participant"),
-	inverseJoinColumns = @JoinColumn(name="id_diplome"))
+	inverseJoinColumns = @JoinColumn(name="id_diplome"))*/
 	//suppression json ignore car deja dans diplomes model
-	//@JsonIgnore
+	@JsonIgnore
 	private List<Diplome>  diplomes;
 
 	public List<Formation> getFormations() {
