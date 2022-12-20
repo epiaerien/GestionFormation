@@ -74,4 +74,12 @@ public class FormationController {
 		return formations;
 	}
 	
+
+	@GetMapping("/formationparformateur/{id}")
+	public List<Formation> formationparformateur(@PathVariable("id") int id )
+	{
+		List<Formation> formations = formationService.getbyidformateur(id);
+		return formations; 
+	}
+
 }

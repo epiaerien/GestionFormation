@@ -8,6 +8,7 @@ import java.util.stream.Collector;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.inti.dao.IDiplomeDao;
 import com.inti.dao.IFormateurDao;
 import com.inti.dao.IFormationDao;
 import com.inti.model.Formateur;
@@ -22,6 +23,18 @@ public class FormationService implements IFormationService {
 	@Autowired
 	IFormationDao formationDao;
 	
+
+	@Autowired
+	IDiplomeDao diplomeDao;
+
+	@Override
+	public List<Formation> getbyidformateur(int id)
+	{
+		List<Formation> formations = formationDao.findByFormateur_id(id); 
+		return formations; 
+		
+	}
+
 	
 	@Override
 	public Set<Formation> getByidParticipants(int id) {
@@ -36,10 +49,10 @@ public class FormationService implements IFormationService {
 	
 	@Override
 	public void add(Formation form) {
-
 		formationDao.save(form);
 	}
 	
+	//ajouter formation pour un participant
 	
 	@Override
 	public List<Formation> selectAll(){
@@ -53,6 +66,8 @@ public class FormationService implements IFormationService {
 		Formation form = formationDao.findById(id).get();
 		return form;
 	}
+	
+	
 	
 	
 	@Override
