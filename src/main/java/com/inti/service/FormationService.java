@@ -23,9 +23,18 @@ public class FormationService implements IFormationService {
 	@Autowired
 	IFormationDao formationDao;
 	
+
 	@Autowired
 	IDiplomeDao diplomeDao;
-	
+
+	@Override
+	public List<Formation> getbyidformateur(int id)
+	{
+		List<Formation> formations = formationDao.findByFormateur_id(id); 
+		return formations; 
+		
+	}
+
 	
 	@Override
 	public Set<Formation> getByidParticipants(int id) {

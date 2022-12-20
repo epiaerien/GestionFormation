@@ -17,6 +17,7 @@ public interface IFormationService {
 	void delete(int id);
 	
 	Set<Formation> getByidParticipants(int id);
-	
-	
+
+	public List<Formation> getbyidformateur(int id);
+
 }
