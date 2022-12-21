@@ -14,5 +14,5 @@ public interface IAppelService {
 	public void delete(int id);
 	
 	public List<Appel> getbyidcommercial(int id);
-	
+	public List<Appel> getbyidprospect(int id);
 }

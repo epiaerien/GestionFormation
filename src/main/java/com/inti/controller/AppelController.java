@@ -58,4 +58,10 @@ public class AppelController {
 		return appels; 
 	}
 
+	@GetMapping("/appelparprospect/{id}")
+	public List<Appel> appelparprospect(@PathVariable("id") int id )
+	{
+		List<Appel> appels = apService.getbyidprospect(id);
+		return appels; 
+	}
 }
