@@ -6,4 +6,5 @@ import com.inti.model.Payement;
 
 public interface IPayementDao extends JpaRepository<Payement, Integer>{
 
+	public Payement findByTransactions_Id (int idTrans);
 }

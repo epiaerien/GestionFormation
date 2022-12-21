@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.inti.dao.IDiplomeDao;
 import com.inti.dao.IParticipantDao;
+import com.inti.dao.ITransactionDao;
 import com.inti.model.Diplome;
 import com.inti.model.Formation;
 import com.inti.model.Participant;
+import com.inti.model.Transaction;
 
 @Service
 public class ParticipantService implements IParticipantService{
@@ -19,6 +21,9 @@ public class ParticipantService implements IParticipantService{
 	
 	@Autowired
 	IDiplomeDao diplDao;
+	
+	@Autowired
+	ITransactionDao transacDao;
 
 	@Override
 	public void add(Participant p) {
@@ -45,6 +50,13 @@ public class ParticipantService implements IParticipantService{
 	public void delete(int id) {
 		
 		Participant p = parDao.findById(id).get();
+		
+		List<Transaction> trans = p.getTransactions();
+		for(Transaction t:trans) {			
+			transacDao.delete(t);
+			}
+		
+		p.setTransactions(null);
 		
 		List<Diplome> diplomes = p.getDiplomes();
 		for(Diplome d:diplomes) {			

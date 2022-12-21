@@ -46,6 +46,14 @@ public class PayementController {
 		return p;
 
 	}
+	
+	@GetMapping("/git/{id}")
+	public Payement selectByIdTrans(@PathVariable("id") int idTrans) {
+
+		Payement p = payService.selectByIdTrans(idTrans);
+		return p;
+
+	}
 
 	@DeleteMapping("/payements/{id}")
 	public void delete(@PathVariable("id") int id) {

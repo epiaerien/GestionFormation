@@ -11,5 +11,6 @@ public interface IPayementService {
 	public List<Payement> selectAll();
 	public Payement selectById(int id);
 	public void delete(int id);
+	public Payement selectByIdTrans(int idTrans);
 
 }
