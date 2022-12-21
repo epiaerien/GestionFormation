@@ -11,5 +11,8 @@ public interface ICommercialService {
 	public List<Commercial> selectAll();
 	public Commercial selectById(int id);
 	public void delete(int id);
+	public Commercial commercialparappel(int id);
+	
 
+	public Commercial commercialparrdv(int id);
 }

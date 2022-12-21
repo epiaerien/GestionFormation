@@ -39,5 +39,19 @@ public class CommercialService implements ICommercialService{
 		comDao.deleteById(id);
 		
 	}
+	
+	public Commercial commercialparappel(int id)
+	{
+		Commercial c = comDao.findByAppelsProspect_id(id); 
+		return c ;	
+	}
+	
+	public Commercial commercialparrdv(int id)
+	{
+		Commercial c = comDao.findByRdvProspect_id(id); 
+		return c; 
+	}
+	
+	
 
 }

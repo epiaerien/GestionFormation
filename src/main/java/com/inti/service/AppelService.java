@@ -45,4 +45,10 @@ public class AppelService implements IAppelService {
 		
 	}
 	
+	public List<Appel> getbyidprospect(int id)
+	{
+		List<Appel> appels = apDao.findByProspect_id(id); 
+		return appels; 
+		
+	}
 }

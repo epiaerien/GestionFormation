@@ -52,4 +52,19 @@ public class CommercialController {
 		comService.delete(id);
 	}
 
+	@GetMapping("/commercialparappel/{id}")
+	public Commercial commercialparappel(@PathVariable("id") int id)
+	{
+		Commercial c = comService.commercialparappel(id); 
+		return c; 
+	}
+	
+	@GetMapping("/commercialparrdv/{id}")
+	public Commercial commercialparrdv(@PathVariable("id") int id)
+	{
+		Commercial c = comService.commercialparrdv(id); 
+		return c; 
+	}
+	
+	
 }
