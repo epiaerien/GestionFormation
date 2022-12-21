@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,12 +27,12 @@ public class Transaction {
 	
 	private float montant;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "id_participant")
 	@JsonIgnore
 	private Participant participant;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "id_payement")
 	//enlever json 16/12/2022
 	//@JsonIgnore

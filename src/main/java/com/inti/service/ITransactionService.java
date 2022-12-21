@@ -10,5 +10,6 @@ public interface ITransactionService {
 	public List<Transaction> selectAll();
 	public Transaction selectById(int id);
 	public void delete(int id);
+	public List<Transaction> selectAllByIdPart(int idPart);
 
 }

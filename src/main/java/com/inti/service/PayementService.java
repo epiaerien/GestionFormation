@@ -44,6 +44,15 @@ public class PayementService implements IPayementService{
 		payDao.deleteById(id);
 		
 	}
+	
+	@Override
+	public Payement selectByIdTrans(int idTrans) {
+		
+		Payement p = payDao.findByTransactions_Id(idTrans);
+		
+		return p;
+	}
+	
 
 
 	
