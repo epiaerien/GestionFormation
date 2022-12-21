@@ -12,6 +12,8 @@ public class GestionFormationApplication {
 		SpringApplication.run(GestionFormationApplication.class, args);
 	}
 	
+	//Leopold
+	
 	@Bean
 	public BCryptPasswordEncoder  passwordEncoder()
 	{
