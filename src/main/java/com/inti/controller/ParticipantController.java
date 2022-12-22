@@ -62,7 +62,7 @@ public class ParticipantController {
 				p.setDiplomes(diplServ.selectAllByIdPart(p.getId()));
 		
 				//si pas encore de transaction 
-				if(p.getTransactions()==null) {
+				if(p.getTransactions()==null || p.getTransactions().size() == 0) {
 					System.out.println("pas de transactions");
 					patService.add(p);
 					}
