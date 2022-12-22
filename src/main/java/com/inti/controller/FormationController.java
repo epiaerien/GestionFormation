@@ -71,7 +71,7 @@ public class FormationController {
 	{
 		
 		Formateur formateur = formateurService.chercherParFormationId(id); 
-		System.out.println(formateur.getNom());
+		//System.out.println(formateur.getNom());
 		return formateur; 
 	}
 	
